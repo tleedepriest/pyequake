@@ -3,6 +3,8 @@ python:
 - 3.8
 - 3.7
 - 3.6
+before_install:
+ - if [[ $TRAVIS_PYTHON_VERSION == 3.7 ]]; then pip install -U importlib_metadata; fi
 install: pip install -U tox-travis
 script: tox
 deploy:
@@ -15,3 +17,4 @@ deploy:
     tags: true
     repo: tleedepriest/pyequake
     python: 3.8
+
